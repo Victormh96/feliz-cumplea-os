@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css?family=Sacramento");
+body {
+  background-color: #1e1934;
+}
+
+#candle2,
+#top2,
+.smoke2,
+#flame2,
+#flame2::after {
+  font-size: 1.8em; /* Aumentar el tamaño en relación con la fuente base */
+}
+
+#candle2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 40%;
+  width: 5em;
+  height: 20em;
+  overflow: hidden;
+}
+#candle2::before {
+  position: absolute;
+  bottom: 0;
+  left: 8%;
+  content: '';
+  width: 100%;
+  height: 65%;
+  background: linear-gradient(whitesmoke 0, #1e1934 125%);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  border: 1px solid #333;
+}
+
+#top2 {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 4em;
+  background-color: transparent;
+}
+#top2 #knot2 {
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - .05em);
+  height: .5em;
+  width: .1em;
+  background-color: #0f3146;
+}
+#top2 .smoke2 {
+  position: absolute;
+  opacity: 0;
+  border-radius: 100%;
+}
+#top2 .smoke2:nth-child(1) {
+  bottom: .1em;
+  left: calc(50% - .5em);
+  height: .5em;
+  width: .5em;
+  background-color: silver;
+}
+#top2 .smoke2:nth-child(2) {
+  bottom: .6em;
+  left: 50%;
+  height: .6em;
+  width: .6em;
+  background-color: lightgray;
+  animation-delay: .2s;
+}
+#top2 .smoke2:nth-child(3) {
+  bottom: 1.1em;
+  left: 20%;
+  height: .3em;
+  width: .3em;
+  background-color: whitesmoke2;
+  animation-delay: .3s;
+}
+#top2 #flame2 {
+  position: absolute;
+  bottom: .15em;
+  width: 1.5em;
+  height: 1.6em;
+  background-color: #ffee86;
+  border-radius: 100%;
+  box-shadow: inset 0 0 0 .1em #ffee86;
+  transform: rotateY(30deg);
+  cursor: pointer;
+}
+#top2 #flame2::after {
+  position: absolute;
+  content: '';
+  width: .7em;
+  height: .9em;
+  bottom: 10%;
+  left: calc(50% - .35em);
+  background-color: #ff3200;
+  border-radius: 100%;
+  animation: burn2Inner 1.5s ease-in-out infinite;
+}
+#top2 #flame2:hover {
+  transition: all .1s ease-in-out;
+  background-color: yellow;
+}
+#top2 #flame2:hover::after {
+  background-color: red;
+}
+
+@keyframes glow2 {
+  0% {
+    box-shadow: 0 0 1.5em 2.2em rgba(255, 246, 162, 0.75);
+  }
+  50% {
+    box-shadow: 0 0 1.5em 2em rgba(255, 246, 162, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 1.5em 2.2em rgba(255, 246, 162, 0.75);
+  }
+}
+@keyframes burn2 {
+  0% {
+    height: 1.7em;
+    transform: rotateY(30deg);
+  }
+  50% {
+    height: 1.3em;
+    transform: rotateY(0deg);
+    opacity: .9;
+  }
+  100% {
+    height: 1.7m;
+    transform: rotateY(30deg);
+  }
+}
+@keyframes burn2Inner {
+  0% {
+    height: .9em;
+    transform: rotateX(0deg);
+  }
+  50% {
+    height: .8em;
+    transform: rotateX(30deg);
+  }
+  100% {
+    height: .9em;
+    transform: rotateX(0deg);
+  }
+}
+@keyframes puff2 {
+  100% {
+    transform: rotateY(-30deg);
+    opacity: 0;
+  }
+}
+@keyframes puff2-bubble {
+  0% {
+    opacity: 0;
+    transform: scale(1, 1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8, 0.8);
+  }
+}
+.glow2 {
+  animation: glow2 3s ease-in-out infinite;
+}
+
+.burn2 {
+  animation: burn2 1.5s ease-in-out infinite;
+}
+
+.puff2 {
+  animation: puff2 .3s ease-in-out forwards;
+}
+
+.puff2-bubble {
+  animation: puff2-bubble .75s ease-in-out forwards;
+}
